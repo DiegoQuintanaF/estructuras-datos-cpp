@@ -1,6 +1,7 @@
 #ifndef LISTA_DOBLE_H
 #define LISTA_DOBLE_H
 
+#include <iostream>
 #include "nodo.h"
 using namespace std;
 
