@@ -1,6 +1,8 @@
 #ifndef NODO_H
 #define NODO_H 
 
+#include <iostream>
+
 class ListaDoble;
 
 class Nodo {

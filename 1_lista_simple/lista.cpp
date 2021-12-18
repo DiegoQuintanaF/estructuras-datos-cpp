@@ -4,7 +4,7 @@ Lista::Lista() {
     prim = ultm = nullptr;
 }
 
-void Lista::entrarDatos(int dato) {
+void Lista::entrarDato(int dato) {
 
     if(estaEnLista(dato)) {
         cout << "El " <<  dato << " ya esta en lista, no se agrego." << endl;

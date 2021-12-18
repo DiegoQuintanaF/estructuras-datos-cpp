@@ -3,14 +3,14 @@
 
 int main() {
     Lista a;
-    a.entrarDatos(2);
-    a.entrarDatos(1);
-    a.entrarDatos(5);
-    a.entrarDatos(9);
-    a.entrarDatos(7);
+    a.entrarDato(2);
+    a.entrarDato(1);
+    a.entrarDato(5);
+    a.entrarDato(9);
+    a.entrarDato(7);
     a.imprimirLista();
     cout << endl;
-    a.entrarDatos(2);
+    a.entrarDato(2);
     a.borrarDato(5);
     a.borrarDato(7);
     a.borrarDato(2);

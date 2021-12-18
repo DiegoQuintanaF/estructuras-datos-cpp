@@ -9,7 +9,7 @@ using namespace std;
 class Lista {
     public:
         Lista();
-        void entrarDatos(int dato);
+        void entrarDato(int dato);
         void borrarDato(int dato);
         void imprimirLista();
 

@@ -10,7 +10,7 @@ class ListaDoble {
         ListaDoble();
         void entrarDato(int dato);
         void borrarDato(int dato);
-        void imprimirDato(int dato);
+        void imprimirDato();
 
         bool estaEnLista(int dato);
     private:
