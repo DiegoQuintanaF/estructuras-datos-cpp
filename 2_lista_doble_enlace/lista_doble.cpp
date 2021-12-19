@@ -78,11 +78,9 @@ void ListaDoble::borrarDato(int dato) {
     p->ant->sig = p->sig;
     p->sig->ant = p->ant;
     delete p;
-
-        
 }
 
-void ListaDoble::imprimirDato() {
+void ListaDoble::imprimirDato() const {
     Nodo *p = prim;
     while (p != nullptr) {
         cout << "Dato -> " << p->dato << endl;
@@ -94,7 +92,7 @@ void ListaDoble::imprimirDato() {
         cout << "Prim: nullptr    Ultm: nullptr" << endl;  
 }
 
-bool ListaDoble::estaEnLista(int dato) {
+bool ListaDoble::estaEnLista(int dato) const {
     Nodo *p = prim;
     while(p != nullptr && p->dato != dato)
         p = p->sig; 

@@ -10,9 +10,9 @@ class ListaDoble {
         ListaDoble();
         void entrarDato(int dato);
         void borrarDato(int dato);
-        void imprimirDato();
+        void imprimirDato() const;
 
-        bool estaEnLista(int dato);
+        bool estaEnLista(int dato) const;
     private:
         Nodo *prim, *ultm, *nuevo;
 };
