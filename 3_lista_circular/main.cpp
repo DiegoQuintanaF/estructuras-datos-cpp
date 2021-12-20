@@ -1,6 +1,5 @@
 #include <iostream>
 #include "lista_circular.h"
-
 using namespace std;
 
 ListaCircular a;
