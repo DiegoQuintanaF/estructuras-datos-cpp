@@ -29,16 +29,13 @@ void ListaCircular::entrarDato(int dato) {
             break;
     }
 
-
-    
     p->ant->sig = nuevo;
     nuevo->ant = p->ant;
     p->ant = nuevo;
     nuevo->sig = p;
 
-    if(dato < prim->dato) {
+    if(dato < prim->dato) 
         prim = nuevo; 
-    }
 }
 
 void ListaCircular::borrarDato(int dato) {
@@ -90,7 +87,7 @@ void ListaCircular::imprimirDatos() const {
         return;
     }
 
-    if (prim->sig == nullptr) {
+    if(prim->sig == nullptr) {
         cout << "Dato -> " << prim->dato << endl;
         return;
     }
@@ -108,19 +105,13 @@ bool ListaCircular::estaEnLista(int dato) const {
     if (prim == nullptr) 
         return false;
 
-    if (prim->sig == nullptr) {
-        if(prim->dato == dato)
-            return true;
-        return false;
-    }
+    if (prim->sig == nullptr)
+        return (prim->dato == dato) ? true : false;    
 
     Nodo *p = prim;
-    
-    do { 
+     
+    while(p->sig != prim && p->dato != dato)
         p = p->sig;
-    } while(p != prim && p->dato != dato);
 
-    if (p->dato == dato) 
-        return true;
-    return false;
+    return (p->dato == dato) ? true : false;
 }

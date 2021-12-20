@@ -12,7 +12,7 @@ int main () {
     a.entrarDato(5);
 
     a.entrarDato(8);
-    
+    //    
     a.borrarDato(3);
     a.borrarDato(5);
     a.borrarDato(1);
