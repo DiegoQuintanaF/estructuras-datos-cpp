@@ -28,6 +28,8 @@ void ListaCircular::entrarDato(int dato) {
         if (p == prim)
             break;
     }
+
+
     
     p->ant->sig = nuevo;
     nuevo->ant = p->ant;
@@ -48,52 +50,57 @@ void ListaCircular::borrarDato(int dato) {
     Nodo *p = prim;
 
     if(prim->dato == dato) {
-
-        if(prim->dato == prim->sig->dato) {
-            prim = prim->sig = prim->ant = nullptr;
+        if(prim->sig == nullptr){
+            prim = nullptr;
+            delete(p); 
             return;
         }
+
+        if(prim->sig->sig == prim) {
+            prim = prim->sig;
+            prim->sig = prim->ant = nullptr;
+            delete(p);
+            return;
+        } 
         
         prim = p->sig;
         p->ant->sig = prim;
         prim->ant = p->ant; 
         delete(p);
-        return;
-
+        return;      
     }
 
     while(p->dato != dato)
         p = p->sig;
-    
-    p->ant->sig = p->sig;
-    p->sig->ant = p->ant;
-    delete(p);
 
+    if(p->sig->sig == p) { 
+        prim->sig = prim->ant = nullptr;
+        delete(p); 
+        return;
+    }
+    
+    p->sig->ant = p->ant;
+    p->ant->sig = p->sig;
+    delete(p);   
 }
 
 void ListaCircular::imprimirDatos() const {
-    Nodo *p = prim;
     if(prim == nullptr) {
-        cout << "La lista esta vacia¡" << endl;
+        cout << "La lista esta vacia!" << endl;
         return;
     }
-    do {
+
+    if (prim->sig == nullptr) {
+        cout << "Dato -> " << prim->dato << endl;
+        return;
+    }
+
+    Nodo *p = prim;
+   
+    while (p->sig != prim) {
         cout << "Dato -> " << p->dato << endl;
         p = p->sig;
-    } while(p != prim);
-
-    cout << "Prim: " << prim->dato << endl;
-
-    if(prim->sig != nullptr)
-        cout << "Prim->sig: " << prim->sig->dato << endl; 
-    
-    if(prim->ant != nullptr)
-        cout << "Prim->ant: " << prim->ant->dato << endl;
-    if(prim != nullptr) {
-        if(prim == prim->sig && prim == prim->ant)
-            cout << "se esta apuntando a si mismo. " << endl;
-    }
-        
+    }        
 }
 
 bool ListaCircular::estaEnLista(int dato) const {
