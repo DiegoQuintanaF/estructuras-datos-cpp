@@ -12,21 +12,25 @@ nodo *arbol = nullptr;
 nodo *crearNodo(int n);
 void insertarNodo(nodo *&arbol, int n);
 void mostrarArbol(nodo *arbol, int cont);
+bool estaEnArbol(nodo *arbol, int n);
 
 int main() {
-    insertarNodo(arbol, 7);
     insertarNodo(arbol, 8);
-    insertarNodo(arbol, 5);
-    insertarNodo(arbol, 6);
-    insertarNodo(arbol, 10);
+    insertarNodo(arbol, 3);
     insertarNodo(arbol, 1);
+    insertarNodo(arbol, 6);
     insertarNodo(arbol, 4);
-    insertarNodo(arbol, 15);
+    insertarNodo(arbol, 7);
+    insertarNodo(arbol, 10);
+    insertarNodo(arbol, 14);
     insertarNodo(arbol, 13);
-    insertarNodo(arbol, 9);
-    insertarNodo(arbol, 0);
     mostrarArbol(arbol, 0);
 
+    cout << endl << endl << endl;
+    if (estaEnArbol(arbol, 9))
+        cout << "9 esta en el arbol." << endl;
+    else
+        cout << "Nadiras, no esta." << endl;
     return 0;
 }
 
@@ -62,4 +66,17 @@ void mostrarArbol(nodo *arbol, int cont) {
         cout << arbol->dato << endl;
         mostrarArbol(arbol->izq, cont+1); 
     }
+}
+
+bool estaEnArbol(nodo *arbol, int n) {
+    if(arbol == nullptr)
+        return false;
+
+    if(arbol->dato == n)
+        return true;
+
+    if(n < arbol->dato) 
+        estaEnArbol(arbol->izq, n);
+    else 
+        estaEnArbol(arbol->der, n);
 }
