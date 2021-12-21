@@ -11,6 +11,6 @@ class Nodo {
         Nodo(int n): dato(n), sig(nullptr), ant(nullptr) {};
     private:
         int dato;
-        Nodo *sig, *ant; 
+        Nodo *nodoPadre, *sig, *ant; 
 };
 #endif //NODO_H
