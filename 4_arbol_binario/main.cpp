@@ -13,8 +13,11 @@ nodo *crearNodo(int n);
 void insertarNodo(nodo *&arbol, int n);
 void mostrarArbol(nodo *arbol, int cont);
 bool estaEnArbol(nodo *arbol, int n);
+void preOrden(nodo *arbol);
+void inOrden(nodo *arbol);
+void postOrden(nodo *arbol);
 
-int main() {
+int main() { 
     insertarNodo(arbol, 8);
     insertarNodo(arbol, 3);
     insertarNodo(arbol, 1);
@@ -27,10 +30,16 @@ int main() {
     mostrarArbol(arbol, 0);
 
     cout << endl << endl << endl;
-    if (estaEnArbol(arbol, 9))
+    if (estaEnArbol(arbol, 0))
         cout << "9 esta en el arbol." << endl;
     else
         cout << "Nadiras, no esta." << endl;
+    preOrden(arbol);
+    cout << endl << endl;
+    inOrden(arbol);
+    cout << endl << endl;
+    postOrden(arbol);
+    cout << endl << endl;
     return 0;
 }
 
@@ -79,4 +88,29 @@ bool estaEnArbol(nodo *arbol, int n) {
         estaEnArbol(arbol->izq, n);
     else 
         estaEnArbol(arbol->der, n);
+}
+
+void preOrden(nodo *arbol) {
+    if (arbol == nullptr)
+        return;
+    cout << arbol->dato << "-";
+    preOrden(arbol->izq);
+    preOrden(arbol->der);
+}
+
+void inOrden(nodo *arbol) {
+    if (arbol == nullptr)
+        return;
+    inOrden(arbol->izq);
+    cout << arbol->dato << "-";
+    inOrden(arbol->der);
+}
+
+void postOrden(nodo *arbol) {
+    if (arbol == nullptr)
+        return;
+
+    postOrden(arbol->izq);
+    postOrden(arbol->der);
+    cout << arbol->dato << "-";    
 }
